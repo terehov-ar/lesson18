@@ -1,47 +1,31 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-
-import static com.codeborne.selenide.Selenide.*;
-import static io.appium.java_client.AppiumBy.*;
-import static io.qameta.allure.Allure.step;
+import screens.WikipediaPage;
 
 public class SearchTests extends TestBase {
 
+    WikipediaPage wikiPage = new WikipediaPage();
+
     @Test
     void successfulSearchTest() {
-        step("Type search", () -> {
-            $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Appium");
-        });
-        step("Verify content found", () ->
-                $$(id("org.wikipedia.alpha:id/page_list_item_title"))
-                        .shouldHave(sizeGreaterThan(0)));
+        wikiPage.openSearch()
+                .searchText("Appium")
+                .checkSearchResult();
     }
 
     @Test
     void successfulDescriptionCheck() {
-        step("Type search", () -> {
-            $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Selenium software");
-        });
-        step("Assert first description result", () -> {
-            $(id("org.wikipedia.alpha:id/page_list_item_description")).shouldHave(Condition.text("Testing framework for web applications"));
-        });
-    }
-    @Test
-    void unSuccessfulSearchTest405() {
-        step("Type search", () -> {
-            $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Selenium software");
-        });
-        step("Click on selenium search result", () -> {
-            $(id("org.wikipedia.alpha:id/page_list_item_title")).click();
-            $(id("pcs-edit-section-title-description")).shouldHave(Condition.text("Testing framework for web applications"));
-        });
+        wikiPage.openSearch()
+                .searchText("Selenium software")
+                .checkDescriptionResult();
     }
 
+    @Test
+    void unSuccessfulSearchTest405() {
+        wikiPage.openSearch()
+                .searchText("Selenium software")
+                .clickResult()
+                .checkDetailedDescriptionResult();
+    }
 }

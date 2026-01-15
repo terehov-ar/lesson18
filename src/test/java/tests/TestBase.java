@@ -29,13 +29,9 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
-//        String sessionId = Selenide.sessionId().toString();
-//        System.out.println(sessionId);
-
-//        Attach.screenshotAs("Last screenshot"); // todo fix
+        String sessionId = Selenide.sessionId().toString();
         Attach.pageSource();
         closeWebDriver();
-
-//        Attach.addVideo(sessionId);
+        Attach.addVideo(sessionId);
     }
 }
