@@ -15,14 +15,14 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
     @BeforeAll
-    static void beforeAll() {
+    static void setupSelenideConfig() {
         Configuration.browser = BrowserstackDriver.class.getName();
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
     }
 
     @BeforeEach
-    void beforeEach() {
+    void addListenerAndOpen() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open();
     }
