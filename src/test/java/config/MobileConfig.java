@@ -3,6 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
+        "classpath:${type}.properties",
         "classpath:remote.properties"
 })
 public interface MobileConfig extends Config {
@@ -20,5 +21,8 @@ public interface MobileConfig extends Config {
 
     @Key("os_version")
     String osVersion();
+
+    @Key("deviceHost")
+    String deviceHost();
 
 }

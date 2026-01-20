@@ -13,6 +13,8 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static data.TestData.ANDROID;
+import static data.TestData.ANDROID_UIAUTOMATOR2;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class EmulatorDriver implements WebDriverProvider {
@@ -24,8 +26,8 @@ public class EmulatorDriver implements WebDriverProvider {
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2);
         options.setPlatformName(ANDROID)
-                .setPlatformVersion("13.0")
-                .setDeviceName("RFCR90ZMNQP")
+                .setPlatformVersion("16.0")
+                .setDeviceName("Pixel9")
                 .setApp(getAppPath())
                 .setAppPackage("org.wikipedia.alpha")
                 .setAppActivity("org.wikipedia.main.MainActivity");
