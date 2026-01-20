@@ -44,10 +44,13 @@ public class TestBase {
 
         if (config.deviceHost().equals("remote")) {
             String sessionId = Selenide.sessionId().toString();
-            Attach.pageSource();
             Attach.addVideo(sessionId);
+        }
+        else {
+            Attach.screenshotAs("Last screenshot");
         };
 
+        Attach.pageSource();
         closeWebDriver();
     }
 }
