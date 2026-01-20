@@ -42,12 +42,12 @@ public class TestBase {
     @AfterEach
     void addAttachments() {
 
-        closeWebDriver();
-
         if (config.deviceHost().equals("remote")) {
             String sessionId = Selenide.sessionId().toString();
             Attach.pageSource();
             Attach.addVideo(sessionId);
         };
+
+        closeWebDriver();
     }
 }
