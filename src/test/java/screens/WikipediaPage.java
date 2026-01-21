@@ -16,7 +16,10 @@ public class WikipediaPage {
             searchInput = $(id("org.wikipedia.alpha:id/search_src_text")),
             resultDescription = $(id("org.wikipedia.alpha:id/page_list_item_description")),
             detailedResultDescription = $(id("pcs-edit-section-title-description")),
-            searchResult = $(id("org.wikipedia.alpha:id/page_list_item_title"));
+            searchResult = $(id("org.wikipedia.alpha:id/page_list_item_title")),
+            listOfLanguages = $(id("org.wikipedia.alpha:id/option_label")),
+            continueButton = $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")),
+            headerWelcomePage = $(id("org.wikipedia.alpha:id/primaryTextView"));
 
     private final ElementsCollection searchResults = $$(id("org.wikipedia.alpha:id/page_list_item_title"));
 
@@ -58,6 +61,27 @@ public class WikipediaPage {
     @Step("Проверяем детальное описание по найденному результату")
     public WikipediaPage checkDetailedDescriptionResult() {
         detailedResultDescription.shouldHave(Condition.text("Testing framework for web applications"));
+
+        return this;
+    }
+
+    @Step("Проверяем наличие языков")
+    public WikipediaPage checkLanguages(String language) {
+        listOfLanguages.shouldHave(Condition.text(language));
+
+        return this;
+    }
+
+    @Step("Нажимаем на кнопку Continue")
+    public WikipediaPage pressContinueButton() {
+        continueButton.click();
+
+        return this;
+    }
+
+    @Step("Проверяем заголовок на странице")
+    public WikipediaPage checkHeaderPage(String header) {
+        headerWelcomePage.shouldHave(Condition.text(header));
 
         return this;
     }

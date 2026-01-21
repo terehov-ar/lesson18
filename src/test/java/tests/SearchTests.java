@@ -1,11 +1,7 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 import screens.WikipediaPage;
-
-import static com.codeborne.selenide.Selenide.$;
-import static io.appium.java_client.AppiumBy.id;
 
 public class SearchTests extends TestBase {
 
@@ -34,16 +30,14 @@ public class SearchTests extends TestBase {
     }
 
     @Test
-    void unSuccessfulSearchTest4052() {
+    void checkHeaderPages() {
 
-        $(id("org.wikipedia.alpha:id/option_label")).shouldHave(Condition.text("1. English"));
-        $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
-        $(id("org.wikipedia.alpha:id/primaryTextView")).shouldHave(Condition.text("New ways to explore"));
-        $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
-        $(id("org.wikipedia.alpha:id/primaryTextView")).shouldHave(Condition.text("Reading lists with sync"));
-        $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
-        $(id("org.wikipedia.alpha:id/primaryTextView")).shouldHave(Condition.text("Data & Privacy"));
-
+        wikiPage.checkLanguages("1. English")
+                .pressContinueButton()
+                .checkHeaderPage("New ways to explore")
+                .pressContinueButton()
+                .checkHeaderPage("Reading lists with sync")
+                .pressContinueButton()
+                .checkHeaderPage("Data & Privacy");
     }
-
 }
