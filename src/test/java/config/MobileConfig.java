@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 @Config.Sources({
         "classpath:${type}.properties",
-        "classpath:emulator.properties"
+        "classpath:remote.properties"
 })
 public interface MobileConfig extends Config {
     @Key("user")
