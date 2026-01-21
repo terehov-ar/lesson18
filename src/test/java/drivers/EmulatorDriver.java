@@ -1,8 +1,10 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
+import config.MobileConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
@@ -19,6 +21,8 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class EmulatorDriver implements WebDriverProvider {
 
+    private final MobileConfig config = ConfigFactory.create(MobileConfig.class, System.getProperties());
+
     @Nonnull
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
@@ -26,8 +30,8 @@ public class EmulatorDriver implements WebDriverProvider {
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2);
         options.setPlatformName(ANDROID)
-                .setPlatformVersion("16.0")
-                .setDeviceName("Pixel9")
+                .setPlatformVersion(config.platformVersion())
+                .setDeviceName(config.device())
                 .setApp(getAppPath())
                 .setAppPackage("org.wikipedia.alpha")
                 .setAppActivity("org.wikipedia.main.MainActivity");

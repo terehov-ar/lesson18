@@ -25,4 +25,7 @@ public interface MobileConfig extends Config {
     @Key("deviceHost")
     String deviceHost();
 
+    @Key("platformVersion")
+    String platformVersion();
+
 }

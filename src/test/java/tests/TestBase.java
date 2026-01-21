@@ -40,7 +40,7 @@ public class TestBase {
     }
 
     @AfterEach
-    void addAttachments() {
+    void addAttachmentsAndCloseDriver() {
 
         if (config.deviceHost().equals("remote")) {
             String sessionId = Selenide.sessionId().toString();
