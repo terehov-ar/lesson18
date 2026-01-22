@@ -6,7 +6,7 @@ import org.aeonbits.owner.Config;
         "classpath:${type}.properties",
         "classpath:remote.properties"
 })
-public interface MobileConfig extends Config {
+public interface RemoteMobileConfig extends Config {
     @Key("user")
     String browserstackUser();
 
@@ -24,8 +24,4 @@ public interface MobileConfig extends Config {
 
     @Key("deviceHost")
     String deviceHost();
-
-    @Key("platformVersion")
-    String platformVersion();
-
 }

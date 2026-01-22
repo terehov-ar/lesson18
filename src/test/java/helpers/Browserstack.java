@@ -1,14 +1,13 @@
 package helpers;
 
-import config.MobileConfig;
+import config.RemoteMobileConfig;
 import org.aeonbits.owner.ConfigFactory;
 
 import static io.restassured.RestAssured.given;
 
-
 public class Browserstack {
 
-    private static final MobileConfig config = ConfigFactory.create(MobileConfig.class, System.getProperties());
+    private static final RemoteMobileConfig config = ConfigFactory.create(RemoteMobileConfig.class, System.getProperties());
 
     public static String videoUrl(String sessionId) {
 

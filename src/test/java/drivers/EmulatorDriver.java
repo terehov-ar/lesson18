@@ -1,7 +1,7 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import config.MobileConfig;
+import config.EmulatorMobileConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.aeonbits.owner.ConfigFactory;
@@ -21,7 +21,7 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class EmulatorDriver implements WebDriverProvider {
 
-    private final MobileConfig config = ConfigFactory.create(MobileConfig.class, System.getProperties());
+    private final EmulatorMobileConfig configEmulator = ConfigFactory.create(EmulatorMobileConfig.class, System.getProperties());
 
     @Nonnull
     @Override
@@ -30,8 +30,8 @@ public class EmulatorDriver implements WebDriverProvider {
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2);
         options.setPlatformName(ANDROID)
-                .setPlatformVersion(config.platformVersion())
-                .setDeviceName(config.device())
+                .setPlatformVersion(configEmulator.platformVersion())
+                .setDeviceName(configEmulator.device())
                 .setApp(getAppPath())
                 .setAppPackage("org.wikipedia.alpha")
                 .setAppActivity("org.wikipedia.main.MainActivity");
