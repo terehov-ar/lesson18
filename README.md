@@ -65,10 +65,6 @@ ___
 <a id="allure"></a>
 ## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [report](https://jenkins.autotests.cloud/job/C38-ar_terekhov-lesson18/)</a>
 
-### *Main report page*
-
-<p align="center"> <img title="Allure Overview Dashboard" src="images/screen/allureReport.png" width="850"> </p>
-
 ### *Suite*
 
 <p align="center"> <img title="Allure Tests" src="images/screen/allureSuites.png" width="850"> </p>
