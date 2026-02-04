@@ -78,5 +78,5 @@ ___
 ## </a> Пример видео выполнения тестирования
 
 <p align="center">
-<img title="Mobile Video" src="images/gif/mobileTest.gif" width="550" height="350"  alt="video">   
+<img title="Mobile Video" src="images/gif/mobileTest.gif" width="514" height="1080"  alt="video">   
 </p>
