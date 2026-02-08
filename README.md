@@ -1,6 +1,6 @@
 # Проект автоматизации [Wikipedia](https://www.wikipedia.org/)
 
-> Wikipedia is a free online encyclopedia, created and edited by volunteers around the world and hosted by the Wikimedia Foundation.
+> Википедия — это бесплатная онлайн-энциклопедия, созданная и редактируемая волонтерами со всего мира и размещенная на серверах Фонда Викимедиа.
 
 ## **Содержание:**
 ____
