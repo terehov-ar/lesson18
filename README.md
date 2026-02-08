@@ -15,6 +15,8 @@ ____
 
 * <a href="#allure">Allure report</a>
 
+* <a href="#video">Пример видео выполнения тестирования</a>
+
 ____
 
 <a id="tools"></a>
@@ -71,3 +73,10 @@ ___
 <p align="center"> <img title="Allure Tests" src="images/screen/allureSuites.png" width="850"> </p>
 
 ___
+
+<a id="video"></a>
+## </a> Пример видео выполнения тестирования
+
+<p align="center">
+<img title="Mobile Video" src="images/gif/mobileTest.gif" width="514" height="1080"  alt="video">   
+</p>
